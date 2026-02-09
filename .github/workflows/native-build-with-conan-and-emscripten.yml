@@ -52,6 +52,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         conan profile detect
+        echo $PATH
 
     - name: Cache for conan
       uses: actions/cache@v3
@@ -81,6 +82,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
