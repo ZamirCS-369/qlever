@@ -45,7 +45,7 @@ jobs:
         echo "/home/runner/work/qlever/qlever/emsdk" >> "$GITHUB_PATH"
         echo $PATH
         echo $GITHUB_PATH
-        cd /home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emsdk/upstream/emscripten/cmake/Modules/Platform
+        cd /home/runner/work/qlever/qlever/emsdk/upstream/emscripten/cmake/Modules/Platform
         ls
       shell: bash
 
@@ -94,6 +94,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
