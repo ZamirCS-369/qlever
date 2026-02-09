@@ -45,12 +45,20 @@ jobs:
         echo "/home/runner/work/qlever/qlever/emsdk" >> "$GITHUB_PATH"
         echo $PATH
         echo $GITHUB_PATH
+        cd /home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emsdk/upstream/emscripten/cmake/Modules/Platform
+        ls
       shell: bash
 
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
       with:
         node-version: 25
+
+      
+    - name: Setup Ninja
+      uses: ashutoshvarma/setup-ninja@master # Copyright (c) 2019-2020 Ashutosh Varma under the MIT license.
+      with:
+        version: 1.10.0 # ninja version to download. Default: 1.10.0
 
     - name: Get build and host profiles for conan
       working-directory: ${{github.workspace}}
@@ -86,6 +94,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
