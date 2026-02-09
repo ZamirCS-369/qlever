@@ -4,9 +4,6 @@ if (POLICY CMP0167)
 endif ()
 project(QLever C CXX)
 
-set(CMAKE_C_COMPILER $HOME/emsdk/upstream/emscripten/emcc)
-set(CMAKE_CXX_COMPILER $HOME/emsdk/upstream/emscripten/em++)
-
 # C/C++ Versions
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
