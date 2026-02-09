@@ -41,8 +41,8 @@ tools.cmake.cmaketoolchain:generator=Ninja
 tools.build:exelinkflags=['-sALLOW_MEMORY_GROWTH=1', '-sMAXIMUM_MEMORY=4GB', '-sINITIAL_MEMORY=64MB', '-sMEMORY64=1', '-sUSE_ICU=1', '-sUSE_BOOST_HEADERS=1', '-sUSE_ZLIB=1', '-sUSE_BZIP2=1', '-fexceptions']
 tools.build:sharedlinkflags=['-sALLOW_MEMORY_GROWTH=1', '-sMAXIMUM_MEMORY=4GB', '-sINITIAL_MEMORY=64MB', '-sMEMORY64=1', '-sUSE_ICU=1', '-sUSE_BOOST_HEADERS=1', '-sUSE_ZLIB=1', '-sUSE_BZIP2=1', '-fexceptions']
 boost/*:tools.build:cxxflags=['-sMEMORY64=1']
-tools.build:compiler_executables={'c': '$HOME/emsdk/upstream/emscripten/emcc', 'cpp': '$HOME/emsdk/upstream/emscripten/emcc'}
-tools.cmake.cmaketoolchain:user_toolchain=["$HOME/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"] 
+tools.build:compiler_executables={'c': '/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emcc', 'cpp': '/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emcc'}
+tools.cmake.cmaketoolchain:user_toolchain=["/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"] 
 
 [buildenv]
 CC=emcc
