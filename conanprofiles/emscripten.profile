@@ -9,7 +9,7 @@ os=Emscripten
 compiler.threads=posix
 
 [options]
-icu/*:with_icuio=False
+#icu/*:with_icuio=False
 
 boost/*:without_atomic=True
 boost/*:without_charconv=True
