@@ -30,7 +30,7 @@ jobs:
         git clone https://github.com/emscripten-core/emsdk.git
 
         # Enter that directory
-        cd emsdk
+        cd ${{github.workspace}}/emsdk
 
         # Download and install v4.0.21 SDK tools.
         ./emsdk install 4.0.21
@@ -42,6 +42,7 @@ jobs:
         source ./emsdk_env.sh
 
         emcc -v
+        cd ${{github.workspace}}
 
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
@@ -81,6 +82,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
