@@ -41,6 +41,8 @@ jobs:
         # Activate PATH and other environment variables in the current terminal
         source ./emsdk_env.sh
 
+        emcc -v
+
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
       with:
@@ -79,5 +81,6 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
