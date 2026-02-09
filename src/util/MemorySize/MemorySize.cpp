@@ -30,6 +30,12 @@ constexpr ctll::fixed_string unitGroup = "unit";
 }  // namespace
 #include "util/ConstexprUtils.h"
 
+namespace absl {
+  from_chars_result from_chars(__wrap_iter<const char*> first, __wrap_iter<const char*> second, double& value, chars_format fmt = chars_format::general) {
+    // Dereference the iterator to get the const char*
+    return from_chars(*first, *second, value, fmt);
+}
+
 namespace ad_utility {
 // _____________________________________________________________________________
 std::string MemorySize::asString() const {
