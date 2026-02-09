@@ -43,6 +43,7 @@ jobs:
 
         emcc -v
         cd ${{github.workspace}}
+        echo $HOME
 
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
@@ -82,6 +83,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
