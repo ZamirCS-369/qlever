@@ -46,7 +46,9 @@ jobs:
         echo $HOME
 
     - name: Update path to compiler for github workflow
-      run: sed 's#$HOME#/home/runner/work/qlever/qlever#' conanprofiles/emscripten.profile
+      run: |
+        sed 's#$HOME#/home/runner/work/qlever/qlever#' conanprofiles/emscripten.profile
+        cat conanprofiles/emscripten.profile
 
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
@@ -86,6 +88,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
