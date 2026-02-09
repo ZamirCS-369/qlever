@@ -45,6 +45,9 @@ jobs:
         cd ${{github.workspace}}
         echo $HOME
 
+    - name: Update path to compiler for github workflow
+      run: sed 's#$HOME#/home/runner/work/qlever/qlever#'
+
     - name: Set up nodejs v25.
       uses: actions/setup-node@v6
       with:
@@ -83,6 +86,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
