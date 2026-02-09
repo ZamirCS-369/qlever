@@ -43,12 +43,11 @@ tools.build:sharedlinkflags=['-sALLOW_MEMORY_GROWTH=1', '-sMAXIMUM_MEMORY=4GB', 
 boost/*:tools.build:cxxflags=['-sMEMORY64=1']
 tools.build:compiler_executables={'c': '/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emcc', 'cpp': '/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emcc'}
 tools.cmake.cmaketoolchain:user_toolchain=["/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"]
-core.graph:compatibility_mode=optimized
 
 [buildenv]
 CC=emcc
 CXX=em++
-AR=emar
-NM=emnm
-RANLIB=emranlib
-STRIP=emstrip
+AR=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emar
+NM=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emnm
+RANLIB=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emranlib
+STRIP=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emstrip
