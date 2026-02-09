@@ -45,8 +45,8 @@ tools.build:compiler_executables={'c': '/home/runner/work/qlever/qlever/emsdk/up
 tools.cmake.cmaketoolchain:user_toolchain=["/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"]
 
 [buildenv]
-CC=emcc
-CXX=em++
+CC=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emcc
+CXX=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/em++
 AR=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emar
 NM=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emnm
 RANLIB=/home/runner/work/qlever/qlever/emsdk/upstream/emscripten/emranlib
