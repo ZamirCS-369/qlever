@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.27)
 if (POLICY CMP0167)
     cmake_policy(SET CMP0167 NEW)
 endif ()
+
+set(CMAKE_C_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/emcc)
+set(CMAKE_CXX_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/em++)
+
 project(QLever C CXX)
 
 # C/C++ Versions
