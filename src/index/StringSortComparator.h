@@ -54,7 +54,7 @@ class LocaleManager {
   // TODO<GCC12> As soon as we have constexpr std::string, this class can
   //  become constexpr.
   using U8String = std::basic_string<uint8_t>;
-  using U8StringView = std::basic_string_view<uint8_t>;
+  using U8StringView = ql::span<uint8_t>;
 
   CPP_template(typename T)(requires ad_utility::SimilarToAny<
                            T, U8String, U8StringView>) class SortKeyImpl {
