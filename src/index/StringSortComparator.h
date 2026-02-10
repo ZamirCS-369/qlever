@@ -86,7 +86,7 @@ class LocaleManager {
     T sortKey_;
   };
   using SortKey = SortKeyImpl<std::basic_string<uint8_t>>;
-  using SortKeyView = SortKeyImpl<std::basic_string_view<uint8_t>>;
+  using SortKeyView = SortKeyImpl<ql::span<uint8_t>>;
 
   /// Copy constructor
   LocaleManager(const LocaleManager& rhs)
