@@ -161,7 +161,7 @@ std::string insertThousandSeparator(const std::string_view str,
 // and compare the hashes instead of the actual strings.
 inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
                                             std::string_view view2) {
-  using byte_view = std::basic_string_view<volatile std::byte>;
+  using byte_view = ql::span<volatile std::byte>;
   auto impl = [](byte_view str1, byte_view str2) {
     if (str1.length() != str2.length()) {
       return false;
