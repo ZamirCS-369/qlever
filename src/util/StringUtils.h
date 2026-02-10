@@ -159,8 +159,8 @@ std::string insertThousandSeparator(const std::string_view str,
 // characters. An equally safe, but slower method to achieve the same thing
 // would be to compute cryptographically secure hashes (like SHA-3 for example)
 // and compare the hashes instead of the actual strings.
-inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
-                                            std::string_view view2) {
+inline QL_CONSTEXPR bool constantTimeEquals(ql::span view1,
+                                            ql::span view2) {
   using byte_view = ql::span<volatile std::byte>;
   auto impl = [](byte_view str1, byte_view str2) {
     if (str1.length() != str2.length()) {
