@@ -88,7 +88,7 @@ MemorySize MemorySize::parse(std::string_view str) {
     // `std::from_chars` which is currently not supported by the standard
     // library used by our macOS build.
     double amount;
-    absl::from_chars(amountString.data(), amountString.data() + .size(), amount);
+    absl::from_chars(amountString.data(), amountString.data() + amountString.size(), amount);
     auto unitString = matcher.get<unitGroup>().to_view();
     switch (std::tolower(unitString.at(0))) {
       case 'b':
