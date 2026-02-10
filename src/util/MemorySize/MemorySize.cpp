@@ -30,7 +30,7 @@ constexpr ctll::fixed_string unitGroup = "unit";
 }  // namespace
 #include "util/ConstexprUtils.h"
 
-absl::from_chars_result from_chars(__wrap_iter<const char*> first, __wrap_iter<const char*> second, double& value, chars_format fmt = chars_format::general) {
+absl::from_chars_result from_chars(std::__wrap_iter<const char*> first, std::__wrap_iter<const char*> second, double& value, fmt = absl::chars_format::general) {
   // Dereference the iterator to get the const char*
   return absl::from_chars(*first, *second, value, fmt);
 };
