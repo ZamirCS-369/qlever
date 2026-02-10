@@ -30,10 +30,10 @@ constexpr ctll::fixed_string unitGroup = "unit";
 }  // namespace
 #include "util/ConstexprUtils.h"
 
-absl::from_chars_result from_chars(std::__wrap_iter<const char*> &first, std::__wrap_iter<const char*> &second, double& value) {
+//absl::from_chars_result from_chars(std::__wrap_iter<const char*> &first, std::__wrap_iter<const char*> &second, double& value) {
   // Dereference the iterator to get the const char*
-  return absl::from_chars(*first, *second, value);
-};
+  //return absl::from_chars(*first, *second, value);
+//};
 
 namespace ad_utility {
 // _____________________________________________________________________________
@@ -88,7 +88,7 @@ MemorySize MemorySize::parse(std::string_view str) {
     // `std::from_chars` which is currently not supported by the standard
     // library used by our macOS build.
     double amount;
-    absl::from_chars(amountString.begin(), amountString.end(), amount);
+    absl::from_chars(amountString.data(), amountString.data() + .size(), amount);
     auto unitString = matcher.get<unitGroup>().to_view();
     switch (std::tolower(unitString.at(0))) {
       case 'b':
