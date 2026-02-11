@@ -150,7 +150,7 @@ template <class _CharT>
   struct my_char_traits {
       public:
           my_char_traits();
-          using char_type  = _CharT;
+          using char_type  = volatile std::byte;
           using int_type   = int;
           using off_type   = std::streamoff;
           using pos_type   = std::streampos;
