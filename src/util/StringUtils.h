@@ -147,20 +147,21 @@ std::string insertThousandSeparator(const std::string_view str,
                                     const char separatorSymbol = ' ');
 
 template <class CharT>
-  struct my_char_traits {
-      using char_type  = char;
-      using int_type   = int;
-      using off_type   = std::streamoff;
-      using pos_type   = std::streampos;
-      using state_type = std::mbstate_t;
+  struct my_char_traits() {
+      public:
+          using char_type  = char;
+          using int_type   = int;
+          using off_type   = std::streamoff;
+          using pos_type   = std::streampos;
+          using state_type = std::mbstate_t;
       
-      static size_t length(const char_type* c) {
-          int len = 0;
-          while (c[len] != '\0') {
-              len++;
+          static size_t length(const char_type* c) {
+              int len = 0;
+              while (c[len] != '\0') {
+                  len++;
+              }
+              return len;
           }
-          return len;
-      }
   };
 
 // *****************************************************************************
