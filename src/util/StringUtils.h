@@ -150,9 +150,9 @@ template <class charT>
   struct my_char_traits {
       using char_type  = char;
       using int_type   = int;
-      using off_type   = streamoff;
-      using pos_type   = streampos;
-      using state_type = mbstate_t;
+      using off_type   = std::streamoff;
+      using pos_type   = std::streampos;
+      using state_type = std::mbstate_t;
       
       static size_t length(const char_type* c) {
           int len = 0;
