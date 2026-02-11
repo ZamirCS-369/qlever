@@ -34,4 +34,22 @@ inline NormalizedStringView asNormalizedStringViewUnsafe(
   return {reinterpret_cast<const NormalizedChar*>(input.data()), input.size()};
 }
 
+template <class _CharT>
+  struct my_char_traits {
+      public:
+          my_char_traits();
+          using char_type  = NormalizedChar;
+      
+          static size_t size(const char_type* c) {
+              int len = 0;
+              while (static_cast<unsigned char>(c[len]) != '\0') {
+                  len++;
+              }
+              return len;
+          }
+          const char* data(const char_type* c) {
+              return c;
+          }
+  };
+
 #endif  // QLEVER_SRC_PARSER_NORMALIZEDSTRING_H
