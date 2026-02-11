@@ -181,7 +181,7 @@ inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
     static_assert(sizeof(std::string_view::value_type) ==
                   sizeof(byte_view::value_type));
     return {
-        static_cast<volatile std::byte*>(static_cast<const void*>(view.data())),
+        static_cast<volatile std::byte*>(static_cast<volatile void*>(view.data())),
         view.size()};
   };
   return impl(toVolatile(view1), toVolatile(view2));
