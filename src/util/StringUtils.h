@@ -166,8 +166,8 @@ inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
       static size_t length(const char_type* c) {
           return c.std::length();
       }
-  }
-  using byte_view = std::basic_string_view<volatile std::byte, charT my_char_traits>;
+  };
+  using byte_view = std::basic_string_view<volatile std::byte, my_char_traits<char>>;
   auto impl = [](byte_view str1, byte_view str2) {
     if (str1.length() != str2.length()) {
       return false;
