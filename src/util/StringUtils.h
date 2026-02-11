@@ -146,6 +146,23 @@ template <const char floatingPointSignifier = '.'>
 std::string insertThousandSeparator(const std::string_view str,
                                     const char separatorSymbol = ' ');
 
+template <class charT>
+  struct my_char_traits {
+      using char_type  = char;
+      using int_type   = int;
+      using off_type   = streamoff;
+      using pos_type   = streampos;
+      using state_type = mbstate_t;
+      
+      static size_t length(const char_type* c) {
+          int len = 0;
+          while (c[len] != '\0') {
+              len++;
+          }
+          return len;
+      }
+  };
+
 // *****************************************************************************
 // Definitions:
 // *****************************************************************************
@@ -161,22 +178,6 @@ std::string insertThousandSeparator(const std::string_view str,
 // and compare the hashes instead of the actual strings.
 inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
                                             std::string_view view2) {
-  template <class charT>
-  struct my_char_traits {
-      using char_type  = char;
-      using int_type   = int;
-      using off_type   = streamoff;
-      using pos_type   = streampos;
-      using state_type = mbstate_t;
-      
-      static size_t length(const char_type* c) {
-          int length = 0;
-          while (c[length] != '\0') {
-              length++;
-          }
-          return length;
-      }
-  };
   using byte_view = std::basic_string_view<volatile std::byte, my_char_traits<char>>;
   auto impl = [](byte_view str1, byte_view str2) {
     if (str1.length() != str2.length()) {
