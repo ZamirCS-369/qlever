@@ -146,7 +146,7 @@ template <const char floatingPointSignifier = '.'>
 std::string insertThousandSeparator(const std::string_view str,
                                     const char separatorSymbol = ' ');
 
-template <class charT>
+template <class CharT>
   struct my_char_traits {
       using char_type  = char;
       using int_type   = int;
