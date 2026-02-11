@@ -2,7 +2,7 @@
 arch=wasm64
 build_type=Release
 compiler=emcc
-compiler.cppstd=20
+compiler.cppstd=23
 compiler.libcxx=libc++
 compiler.version=4.0.21
 os=Emscripten
