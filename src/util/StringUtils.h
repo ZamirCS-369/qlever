@@ -163,11 +163,11 @@ inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
                                             std::string_view view2) {
   using byte_view = ql::span<volatile std::byte>;
   auto impl = [](byte_view str1, byte_view str2) {
-    if (str1.length() != str2.length()) {
+    if (str1.size() != str2.size()) {
       return false;
     }
     volatile std::byte mismatchFound{0};
-    for (size_t i = 0; i < str1.length(); ++i) {
+    for (size_t i = 0; i < str1.size(); ++i) {
       // In C++20 compound assignment of volatile variables causes a warning,
       // so we can't use 'mismatchFound |=' until compiling with C++23 where it
       // is fine again. mismatchFound can be interpreted as bool and "is false"
