@@ -161,18 +161,24 @@ std::string insertThousandSeparator(const std::string_view str,
 // and compare the hashes instead of the actual strings.
 inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
                                             std::string_view view2) {
-  using byte_view = ql::span<volatile std::byte*>;
-  auto impl = [](byte_view* str1, byte_view* str2) {
-    if (*str1.size() != *str2.size()) {
+  template <class charT>
+  struct my_char_traits{
+      static size_t length(const char_type* c) {
+          return c.std::length();
+      }
+  }
+  using byte_view = std::basic_string_view<volatile std::byte, charT my_char_traits>;
+  auto impl = [](byte_view str1, byte_view str2) {
+    if (str1.length() != str2.length()) {
       return false;
     }
     volatile std::byte mismatchFound{0};
-    for (size_t i = 0; i < *str1.size(); ++i) {
+    for (size_t i = 0; i < str1.length(); ++i) {
       // In C++20 compound assignment of volatile variables causes a warning,
       // so we can't use 'mismatchFound |=' until compiling with C++23 where it
       // is fine again. mismatchFound can be interpreted as bool and "is false"
       // until the first mismatch in the strings is found.
-      mismatchFound = mismatchFound | (*str1[i] ^ *str2[i]);
+      mismatchFound = mismatchFound | (str1[i] ^ str2[i]);
     }
     return !static_cast<bool>(mismatchFound);
   };
@@ -181,7 +187,7 @@ inline QL_CONSTEXPR bool constantTimeEquals(std::string_view view1,
     static_assert(sizeof(std::string_view::value_type) ==
                   sizeof(byte_view::value_type));
     return {
-        static_cast<volatile std::byte*>(static_cast<volatile void*>(view.data())),
+        static_cast<const std::byte*>(static_cast<const void*>(view.data())),
         view.size()};
   };
   return impl(toVolatile(view1), toVolatile(view2));
