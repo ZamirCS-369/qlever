@@ -158,7 +158,7 @@ template <class _CharT>
       
           static size_t length(const char_type* c) {
               int len = 0;
-              while (c[len] != '\0') {
+              while (static_cast<unsigned_char>(c[len]) != '\0') {
                   len++;
               }
               return len;
