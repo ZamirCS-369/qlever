@@ -33,10 +33,10 @@ jobs:
         cd ${{github.workspace}}/emsdk
 
         # Download and install v4.0.21 SDK tools.
-        ./emsdk install 4.0.21
+        ./emsdk install 5.0.0
 
         # Make v4.0.21 active
-        ./emsdk activate 4.0.21
+        ./emsdk activate 5.0.0
 
         # Activate PATH and other environment variables in the current terminal
         source ./emsdk_env.sh
@@ -94,6 +94,7 @@ jobs:
       run: >
         source ../conanrun.sh;
         env CTEST_OUTPUT_ON_FAILURE=1 ctest -C ${{matrix.build-type}} .
+
 
 
 
