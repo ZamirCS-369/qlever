@@ -42,12 +42,13 @@ template <class _CharT>
       
           static size_t size(const char_type* c) {
               int len = 0;
-              while (static_cast<unsigned char>(c[len]) != '\0') {
+              NormalizedChar *d = &c;
+              while (static_cast<unsigned char>(d[len]) != '\0') {
                   len++;
               }
               return len;
           }
-          const char* data(const char_type* c) {
+          const char_type* data(const char_type* c) {
               return c;
           }
   };
