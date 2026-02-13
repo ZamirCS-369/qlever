@@ -4,12 +4,12 @@ build_type=Release
 compiler=emcc
 compiler.cppstd=20
 compiler.libcxx=libc++
-compiler.version=4.0.21
+compiler.version=5.0.0
 os=Emscripten
 compiler.threads=posix
 
 [options]
-#icu/*:with_icuio=False
+icu/*:with_icuio=False
 
 boost/*:without_atomic=True
 boost/*:without_charconv=True
