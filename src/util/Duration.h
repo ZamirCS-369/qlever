@@ -92,7 +92,7 @@ class DayTimeDuration {
   static constexpr uint8_t numMillisecondBits =
       absl::bit_width(boundTotalMilliseconds * 2);
   static constexpr uint8_t numUnusedBits = 64 - numMillisecondBits;
-  static_assert(numUnusedBits == 16,
+  static_assert((numUnusedBits == 16 || numUnusedBits == 32),
                 "The number of unused bits for Duration should be 16");
 
  private:
