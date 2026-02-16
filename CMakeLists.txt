@@ -3,8 +3,8 @@ if (POLICY CMP0167)
     cmake_policy(SET CMP0167 NEW)
 endif ()
 
-set(CMAKE_C_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/emcc)
-set(CMAKE_CXX_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/em++)
+# set(CMAKE_C_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/emcc)
+# set(CMAKE_CXX_COMPILER /home/runner/worker/qlever/qlever/emsdk/upstream/emscripten/em++)
 
 project(QLever C CXX)
 
@@ -171,8 +171,8 @@ add_compile_definitions(SPATIALJOIN_NO_BZIP2=True SPATIALJOIN_NO_ZLIB=True)
 ################################
 find_package(Threads REQUIRED)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build")
-list(APPEND CMAKE_FIND_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build")
+# list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build")
+# list(APPEND CMAKE_FIND_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build")
 
 #################################
 # ICU (for proper collation
